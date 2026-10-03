@@ -1,0 +1,17 @@
+{
+  "name": "Sinh nhật Bé",
+  "short_name": "Sinh nhật Bé",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffdbea",
+  "theme_color": "#ff7eb3",
+  "orientation": "landscape",
+  "icons": [
+    {
+      "src": "images/app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

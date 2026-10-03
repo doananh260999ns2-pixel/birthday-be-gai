@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Happy Birthday</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#ffb6d5">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Sinh nhật Bé">
+
+<link rel="apple-touch-icon" href="images/app-icon.png">
+</head>
+
+<script>
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener(
+            "load",
+            () => {
+
+                navigator.serviceWorker
+                    .register("./service-worker.js")
+                    .then(() => {
+                        console.log(
+                            "Service Worker đã đăng ký"
+                        );
+                    })
+                    .catch(error => {
+                        console.error(
+                            "Lỗi Service Worker:",
+                            error
+                        );
+                    });
+
+            }
+        );
+
+    }
+</script>
+
+<body>
+    <div class="floating-icons">
+    <span>🎈</span>
+    <span>💖</span>
+    <span>🎈</span>
+    <span>💕</span>
+    <span>🎀</span>
+    <span>💗</span>
+    <span>🎈</span>
+</div>
+    <div class="balloons">
+    <span>🎈</span>
+    <span>🎈</span>
+    <span>🎈</span>
+    <span>🎈</span>
+    <span>🎈</span>
+    <span>💖</span>
+    <span>⭐</span>
+</div>
+
+    <!-- MÀN HÌNH MỞ ĐẦU -->
+    <section class="hero">
+
+    <div class="rainbow"></div>
+
+    <div class="cloud cloud-1">☁️</div>
+    <div class="cloud cloud-2">☁️</div>
+    <div class="cloud cloud-3">☁️</div>
+
+    <div class="hero-content">
+
+        <div class="hero-photo-wrap">
+            <img
+                src="images/01.jpg"
+                alt="Ảnh bé"
+                class="hero-photo"
+            >
+
+            <div class="age-badge">
+                1
+                <span>tuổi</span>
+            </div>
+        </div>
+
+        <p class="small-title">
+            Hôm nay là một ngày thật đặc biệt 🎀
+        </p>
+
+        <h1 id="main-title"></h1>
+
+        <h2 id="baby-name">
+            Bé Bơ
+            <span class="avocado-icon">🥑</span>
+        </h2>
+
+        <p class="subtitle">
+            Công chúa nhỏ đáng yêu của cả gia đình 💕
+        </p>
+
+        <button id="open-button">
+            MỞ BẤT NGỜ 🎁
+        </button>
+
+    </div>
+
+</section>
+
+    <!-- PHẦN ẢNH CHÍNH -->
+    <section class="birthday-section hidden" id="birthday-section">
+
+        <div class="section-content">
+
+            <div class="age-number">
+                1
+            </div>
+
+            <h2 class="animated-title">
+                Happy 1st Birthday!
+            </h2>
+
+            <img
+                src="images/cover.jpg"
+                alt="Ảnh bé"
+                class="main-photo"
+            >
+
+            <p class="birthday-message">
+                Chúc con luôn khỏe mạnh, vui vẻ
+                và lớn lên trong thật nhiều yêu thương ❤️
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="slideshow-section">
+
+    <h2>
+        Một năm đầu đời thật đáng yêu 💕
+    </h2>
+
+    <div class="slideshow">
+
+        <button
+            class="slide-button"
+            id="prev-slide"
+        >
+            ❮
+        </button>
+
+        <div class="slide-wrapper">
+
+            <img
+                id="slide-image"
+                src="images/01.jpg"
+                alt="Ảnh bé"
+            >
+
+            <p id="slide-caption"></p>
+
+        </div>
+
+        <button
+            class="slide-button"
+            id="next-slide"
+        >
+            ❯
+        </button>
+
+    </div>
+
+</section>
+
+    <!-- ALBUM ẢNH -->
+    <section class="gallery-section">
+
+        <h2>
+            Những khoảnh khắc đáng yêu 💕
+        </h2>
+
+        <div class="gallery" id="gallery"></div>
+
+    </section>
+
+
+    <!-- BÁNH SINH NHẬT -->
+    <section class="cake-section">
+
+        <h2>
+            Cùng bé thổi nến nhé 🎂
+        </h2>
+
+        <div class="birthday-cake" id="birthday-cake">
+            <img
+                src="images/birthday-cake.png"
+                alt="Bánh sinh nhật 1 tuổi"
+                class="birthday-cake-image"
+            >
+        </div>
+
+        <button id="blow-button">
+            THỔI NẾN 🎂
+        </button>
+
+        <p
+            id="wish-message"
+            class="wish-message"
+        ></p>
+
+    </section>
+
+
+    <!-- LỜI CHÚC -->
+    <section class="letter-section">
+
+        <div class="letter">
+
+            <h2>
+                Gửi công chúa nhỏ 💌
+            </h2>
+
+            <p id="letter-text"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- NHẠC -->
+    <audio
+        id="background-music"
+        loop
+    >
+        <source
+            src="music/birthday.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+    <button
+        id="music-button"
+        class="music-button"
+    >
+        🎵
+    </button>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
